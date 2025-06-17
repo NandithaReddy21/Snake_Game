@@ -40,6 +40,23 @@ body {
     margin-bottom: 20px;
 }
 
+#win-restart-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#win-restart-btn:hover {
+    background-color: #eee5e5;
+}
+
 #start-btn {
     font-size: 20px;
     padding: 10px 20px 15px;
@@ -86,7 +103,7 @@ body {
 
 .overlay, #game-over-screen {
     transition: all 0.3s ease-in-out;
-}
+} 
 
 .controls {
     position: absolute;
