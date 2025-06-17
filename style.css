@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'New Tegomin', serif;
+}
+
+body {
+    background: url(img/bg.jpg);
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.overlay {
+    position: absolute;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.overlay h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#start-btn {
+    font-size: 20px;
+    padding: 10px 20px 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+#start-btn:hover, #gameover-restart-btn:hover {
+    background-color: #eee5e5;
+}
+
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: white;
+    font-size: 2rem;
+    backdrop-filter: blur(3px);
+}
+
+#gameover-restart-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border:none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.overlay, #game-over-screen {
+    transition: all 0.3s ease-in-out;
+}
+
+.controls {
+    position: absolute;
+    left: -350px;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.controls button{
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    outline: none;}
+
+.controls :is(button:hover, button:focus) {
+    opacity: 0.9;
+}
+
+.controls button:active {
+    opacity: 1;
+}
+
+.color1 {
+    background-color: #d9c7c7;
+}
+
+.body {
+    position: relative;
+}
+
+.body h1 {
+    text-align: center;
+}
+
+.level-select {
+    position: absolute;
+    left:-350px;
+    font-size: 20px;
+    font-family: 'New Tegomin', serif;
+    font-weight: bold;
+    color: #000;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.level-select select {
+    font-family: 'New Tegomin', serif;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border-radius: 8px;
+}
+
+.level-select select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#score, #high-score{
+    position: absolute;
+    font-size: clamp(20px, 4vw, 39px);
+    font-weight: bold;
+    font-family: 'New Tegomin', serif;
+    color: #333;
+}
+
+#score {
+    right: -200px;
+}
+
+#high-score {
+    top: 60px;
+    right: -310px;
+}
+
+#board {
+    background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
+    width: 90vmin;
+    height: 90vmin;
+    max-width: 500px;
+    max-height: 500px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+}
+
+.head {
+    background: linear-gradient(red, yellow);
+    border: 2px solid purple;
+    transform: scale(1.02);
+    border-radius: 9px;
+
+}
+
+.snake {
+    background-color: purple;
+    border-radius: 12px;
+}
+
+.food {
+    background: linear-gradient(red, purple);
+    border: .25vmin solid #000;
+    border-radius: 8px;
+
+}
+
+.snake:hover, .food:hover {
+    transform: scale(1.05);
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+        background-size: cover;
+    }
+
+    .overlay h1 {
+        font-size: 80px;
+    }
+
+    #start-btn {
+        font-size: 30px;
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .controls,
+    .level-select,
+    #score,
+    #high-score {
+        position: static;
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .controls button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .level-select {
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .level-select select {
+        font-size: 14px;
+    }
+
+    
+
+    #score, #high-score {
+        font-size: 18px;
+    }
+
+    #board {
+        width: 90vmin;
+        height: 90vmin;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay h1 {
+        font-size: 40px;
+    }
+
+    #start-btn {
+        font-size: 20px;
+        padding: 8px 16px;
+    }
+}
+

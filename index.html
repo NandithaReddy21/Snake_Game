@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Mania</title>
+    <link rel="icon" href="img/snake_icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="overlay" id="start-screen">
+        <h1>Snake Mania</h1>
+        <button id="start-btn">Start Game</button>
+    </div>
+    <div id="win-screen" class="overlay hidden">
+        <h1>You Win!</h1>
+        <button id="win-restart-btn">Play Again</button>
+    </div>
+    <div id="game-over-screen" class="hidden">
+        <h2>Game Over!</h2>
+        <p>Your Score: <span id="final-score"></span></p>
+        <button id="gameover-restart-btn">Play again</button>
+    </div>
+
+    <div class="body hidden" id="game-container">
+        <div class="level-select">
+            <label for="difficulty">Choose Difficulty: </label>
+            <select id="difficulty">
+                <option value="3">Easy</option>
+                <option value="6">Medium</option>
+                <option value="10">Hard</option>
+            </select>
+        </div>
+        <div class="controls">
+            <button id="pause-btn">Pause</button>
+            <button id="resume-btn" class="hidden">Resume</button>
+            <button id="restart-btn">Restart Game</button>
+        </div>
+        <div id="score">Score : 0</div>
+        <div id="high-score">High Score : 0</div>
+        <div id="board"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
