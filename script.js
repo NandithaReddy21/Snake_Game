@@ -47,6 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
         gameRunning = true;
         difficultySelect.disabled = false;
         scoreBox.innerHTML = "Score : 0";
+        board.innerHTML = "";
         frameId = requestAnimationFrame(main);
     };
 
@@ -60,6 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     pauseBtn.addEventListener("click", () => {
         isPaused = true;
+        alert("Game is paused");
         pauseBtn.classList.add("hidden");
         resumeBtn.classList.remove("hidden");
         resumeBtn.classList.add("color1");
@@ -72,6 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
         pauseBtn.classList.remove("hidden");
         difficultySelect.disabled = true;
         pauseBtn.classList.remove("color1");
+        frameId = requestAnimationFrame(main);
     });
 
     restartBtn.addEventListener("click", () => {
@@ -199,29 +202,44 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    
+
     // Controls
     window.addEventListener("keydown", (e) => {
-        if (!gameRunning || isPaused) return;
+        if (!gameRunning || isPaused && e.key !== " ") return;
 
         if(!gameStarted) {
             speed = parseInt(difficultySelect.value);
             difficultySelect.disabled = true;
             gameStarted = true;
         }
-        moveSound.play();
+
+        if(e.key !== " ") {
+            moveSound.play();
+        }
         switch (e.key) {
             case "ArrowUp":
+                case "w":
                 if (inputDir.y !== 1) inputDir = { x: 0, y: -1 };
                 break;
             case "ArrowDown":
+                case "s":
                 if (inputDir.y !== -1) inputDir = { x: 0, y: 1 };
                 break;
             case "ArrowLeft":
+                case "a":
                 if (inputDir.x !== 1) inputDir = { x: -1, y: 0 };
                 break;
             case "ArrowRight":
+                case "d":
                 if (inputDir.x !== -1) inputDir = { x: 1, y: 0 };
+                break;
+            case " " :
+                e.preventDefault();
+                if(isPaused) {
+                    resumeBtn.click();
+                } else {
+                    pauseBtn.click();
+                }
                 break;
             default:
                 break;
