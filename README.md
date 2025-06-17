@@ -5,6 +5,8 @@ It features smooth animations, responsive controls, difficulty levels, and inter
 
 ## Live Demo
 
+https://nandithareddy21.github.io/Snake_Game/
+
 ## Features
 
 - **Three Difficulty Levels**: Easy, Medium, and Hard (affects snake speed)
